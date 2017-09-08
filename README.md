@@ -1,26 +1,12 @@
-var fs = require("fs");
+# Pre-require
 
+Pre-require is a small global script, helps you create a module of array object with required assets from the folder that you point out.
 
-fs.readdir("./data/images/", function(err, items) {
-  let slugArray = [];
+This small trick would help you in the situations that you might need to use variables while fetching assets.
 
-  items.forEach((file) => {
-    if(file.includes(".png")){
-      slugArray.push(`${file.split('.')[0]}: require('../data/images/${file}')`);
-    }
-  });
+**For Example:**
 
-
-  let assetsFileContent = `// import this file for static images
-  let Obj = {
-    ${slugArray.join(', ')}
-  }
-  export default Obj;
-  `;
-
-  fs.writeFile ("./js/assets.js", assetsFileContent, function(err) {
-      if (err) throw err;
-      console.log('Static images required');
-  });
-
-});
+Lets say I have 10 images named as;
+- image1.png
+- image2.png
+- image3

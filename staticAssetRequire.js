@@ -1,26 +1,27 @@
 var fs = require("fs");
 
+const FOLDER_PATH = "data/images/";
+const MODULE_NAME = "pre-require-assets.js"
 
-fs.readdir("./data/images/", function(err, items) {
+fs.readdir(FOLDER_PATH, function(err, items) {
   let slugArray = [];
 
   items.forEach((file) => {
-    if(file.includes(".png")){
-      slugArray.push(`${file.split('.')[0]}: require('../data/images/${file}')`);
-    }
+    slugArray.push(`${file}: require('${FOLDER_PATH + file}')`);
+    // push as string
   });
 
 
-  let assetsFileContent = `// import this file for static images
+  let assetsFileContent = `// import this file for static assets
   let Obj = {
     ${slugArray.join(', ')}
   }
   export default Obj;
   `;
 
-  fs.writeFile ("./js/assets.js", assetsFileContent, function(err) {
+  fs.writeFile (MODULE_NAME, assetsFileContent, function(err) {
       if (err) throw err;
-      console.log('Static images required');
+      console.log('Created module for required assets in specified folder');
   });
 
 });
