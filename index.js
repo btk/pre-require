@@ -2,7 +2,7 @@
 
 var fs = require("fs");
 
-const FOLDER_PATH = process.argv[2];
+const FOLDER_PATH = (process.argv[2][0] == "./")?process.argv[2]:"./"+process.argv[2];
 const MODULE_NAME = process.argv[3];
 
 
@@ -10,7 +10,8 @@ fs.readdir(FOLDER_PATH, function(err, items) {
   let slugArray = [];
 
   items.forEach((file) => {
-    slugArray.push(`${file.replace('.', '_')}: require('${FOLDER_PATH + file}')`);
+    let prePath = (FOLDER_PATH[FOLDER_PATH.length - 1] == "/")?FOLDER_PATH:FOLDER_PATH+"/";
+    slugArray.push(`${file.replace('.', '_').replace(/-/g, '_')}: require('${prePath + file}')`);
     // push as string
   });
 
