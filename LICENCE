@@ -10,7 +10,7 @@ fs.readdir(FOLDER_PATH, function(err, items) {
   let slugArray = [];
 
   items.forEach((file) => {
-    slugArray.push(`${file.replace('.', '_')}: require('${FOLDER_PATH + file}')`);
+    slugArray.push(`${file.replace('.', '_').replace(/-/g, '_')}: require('${FOLDER_PATH + file}')`);
     // push as string
   });
 

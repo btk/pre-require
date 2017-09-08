@@ -56,7 +56,7 @@ while(i <= 10){
 }
 ~~~
 
-**NOTE:** Be careful that file extention dot (.) is changed into underscore ( _ ).
+**NOTE:** Be careful that file extension dot (.) is changed into underscore ( _ ). Also if your assetfile has hyphen (-), it will be also turn into underscore.
 
 You can use this module with any file that require() supports; image files (png, jpg, svg, etc), json files or even some extreme cases, javascript files.
 
