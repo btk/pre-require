@@ -1,0 +1,25 @@
+{
+  "name": "pre-require",
+  "version": "1.0.0",
+  "description": "Pre-require is a small global script, helps you create a module of array object with required assets from the folder that you point out.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js images/ assets.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/btk/pre-require.git"
+  },
+  "keywords": [
+    "require",
+    "all",
+    "pre",
+    "require"
+  ],
+  "author": "btk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/btk/pre-require/issues"
+  },
+  "homepage": "https://github.com/btk/pre-require#readme"
+}

@@ -16,11 +16,13 @@ Lets say I have 10 images named as;
 let i = 1;
 let imageArray = [];
 while(i <= 10){
-  imageArray.push(require("image"+ i +".png"));
+  imageArray.push(require("image"+ i +"_png"));
   // Won't work.
   i++;
 }
 ~~~
+
+**NOTE:** Be careful that file extention dot (.) is changed into underscore ( _ ).
 
 Require works before the logic of your script starts working, so using variables in require() is just not the way to go. But as you might know, using require() in react is really nice and you will have some situations that if require would support variables, it would be perfect.
 
