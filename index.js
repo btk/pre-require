@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var fs = require("fs");
 
 const FOLDER_PATH = process.argv[2];
