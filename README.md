@@ -61,9 +61,9 @@ while(i <= 10){
 You can use this module with any file that require() supports; image files (png, jpg, svg, etc), json files or even some extreme cases, javascript files.
 
 **NOTE:** There is a lot to do, for example;
-- Built-in asset search
+- Built-in asset search 
 - Choosing the type of the asset that  (eg: regex folder parameter)
-- Adding -h info.
+- Adding -h info. (done)
 
 Help me make it better with your pull requests, they are welcome.
 
