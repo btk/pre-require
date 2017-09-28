@@ -56,6 +56,37 @@ while(i <= 10){
 }
 ~~~
 
+## Methods
+
+The asset.js file exposes a range of methods for interacting with the data structure
+
+#### Assets.search
+
+This will return an array of assets matching the given pattern, currently this is just the matched asset name. In the future this will accept a regexp or partial match.
+
+~~~JS
+import Assets from './assets.js'
+
+let thirdImage = Assets.search("image3");
+~~~
+
+#### Assets.format
+
+Similar to Assets.search this will return all assets matching a given filetype
+
+~~~JS
+import Assets from './assets.js'
+
+let pngs = Assets.format("png");
+~~~
+
+For a full list of methods and useage see the api reference
+
+~~~
+pre-require -h
+~~~
+
+
 **NOTE:** Be careful that file extension dot (.) is changed into underscore ( _ ). Also if your assetfile has hyphen (-), it will be also turn into underscore.
 
 You can use this module with any file that require() supports; image files (png, jpg, svg, etc), json files or even some extreme cases, javascript files.
