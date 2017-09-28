@@ -56,6 +56,30 @@ while(i <= 10){
 }
 ~~~
 
+## Methods
+
+The asset.js file exposes a range of methods for interacting with the data structure
+
+#### Assets.search
+
+This will return an array of assets matching the given pattern, currently this is just the matched asset name. In the future this will accept a regexp or partial match.
+
+~~~JS
+import Assets from './assets.js'
+
+let thirdImage = Assets.search("image3");
+~~~
+
+#### Assets.format
+
+Similar to Assets.search this will return all assets matching a given filetype
+
+~~~JS
+import Assets from './assets.js'
+
+let pngs = Assets.format("png");
+~~~
+
 For a full list of methods and useage see the api reference
 
 ~~~
