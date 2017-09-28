@@ -2,8 +2,28 @@
 
 var fs = require("fs");
 
-const FOLDER_PATH = (process.argv[2][0] == "./")?process.argv[2]:"./"+process.argv[2];
-const MODULE_NAME = process.argv[3];
+function printUsage(code) {
+  console.log(`Usage: ${__filename} [-h] <asset_folder> <output_file>`);
+  console.log('  asset_folder: The folder containing the source assets for the module being created.');
+  console.log('  output_file:  The resulting javascript source file where the module will be written. This file can be required after running pre-require to load the source assets.');
+
+  code = (code || 0);
+  process.exit(code);
+}
+
+const args = process.argv.slice(2);
+
+if (args.length === 1 && (args[0] === '-h')) {
+  printUsage();
+}
+
+if (args.length !== 2) {
+  console.log('Error: required command line arguments not provided.');
+  printUsage(1);
+}
+
+const FOLDER_PATH = (args[0][0] == "./")?args[0]:"./"+args[0];
+const MODULE_NAME = args[1];
 
 
 fs.readdir(FOLDER_PATH, function(err, items) {
