@@ -6,9 +6,7 @@ function printUsage(code) {
   console.log(`Usage: ${__filename} [-h] <asset_folder> <output_file>`);
   console.log('  asset_folder: The folder containing the source assets for the module being created.');
   console.log('  output_file:  The resulting javascript source file where the module will be written. This file can be required after running pre-require to load the source assets.');
-
-  code = (code || 0);
-  process.exit(code);
+  process.exit(code || 0);
 }
 
 const args = process.argv.slice(2);
