@@ -56,6 +56,13 @@ while(i <= 10){
 }
 ~~~
 
+For a full list of methods and useage see the api reference
+
+~~~
+pre-require -h
+~~~
+
+
 **NOTE:** Be careful that file extension dot (.) is changed into underscore ( _ ). Also if your assetfile has hyphen (-), it will be also turn into underscore.
 
 You can use this module with any file that require() supports; image files (png, jpg, svg, etc), json files or even some extreme cases, javascript files.
