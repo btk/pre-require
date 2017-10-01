@@ -40,9 +40,17 @@ fs.readdir(FOLDER_PATH, function(err, items) {
     search: function(key) {
       if(this.hasOwnProperty(key)) {
         return this[key];
-      }
-      else
+      } else {
         return -1;
+      }
+    },
+    format: function(extention) {
+      let filteredArray = this.filter(assetSlug => (assetSlug.includes("-"+extention)));
+      if(filteredArray.length){
+        return filteredArray;
+      } else {
+        return -1;
+      }
     }
   }
   export default Obj;
