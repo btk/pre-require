@@ -1,6 +1,13 @@
 // import this file for static assets
   let Obj = {
-    asda_sda_json: require('./images/asda-sda.json'), asdasda_json: require('./images/asdasda.json'), qweqwe_json: require('./images/qweqwe.json'), vcvcvcv_json: require('./images/vcvcvcv.json')
+    asda_sda_json: require('./images/asda-sda.json'), asdasda_json: require('./images/asdasda.json'), qweqwe_json: require('./images/qweqwe.json'), vcvcvcv_json: require('./images/vcvcvcv.json'),
+    search: function(key) {
+      if(this.hasOwnProperty(key)) {
+        return this[key];
+      }
+      else
+        return -1;
+    }
   }
   export default Obj;
   
