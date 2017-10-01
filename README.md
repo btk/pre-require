@@ -1,6 +1,6 @@
 # Pre-require
 
-Pre-require is a small global script, helps you create a module of array object with required assets from the folder that you point out.
+Pre-require is a small global script, helps you create a module of an array object with required assets from the folder that you point out.
 
 This small trick would help you in the situations that you might need to use variables while fetching assets.
 
@@ -22,13 +22,13 @@ while(i <= 10){
 }
 ~~~
 
-Require works before the logic of your script starts working, so using variables in require() is just not the way to go. But as you might know, using require() in react is really nice and you will have some situations that if require would support variables, it would be perfect.
+Require more work before the logic of your script starts working, so using variables in require() is just not the way to go. But as you might know using require(), in react is really nice and you will have some situations that if require would support variables, it would be perfect.
 
-Pre-require, requires all the files and creates an array from the pointed folder that you decide, so you can import this array and use is the way you would use require, but with variables. Also you can do array search in your assets.
+Pre-require, requires all the files and creates an array from the pointed folder that you decide, so you can import this array and use it the way you would use require, but with variables. Also you can do an array search in your assets.
 
 ## How to use?
 
-First install the pre-require globallly;
+First install the pre-require globally;
 
 ~~~
 npm install pre-require -g
@@ -96,7 +96,7 @@ You can use this module with any file that require() supports; image files (png,
 - Choosing the type of the asset that  (eg: regex folder parameter)
 - Adding -h info. (done)
 
-Help me make it better with your pull requests, they are welcome.
+Help me to make it better with your pull requests, they are welcome.
 
 ### Licence
 
