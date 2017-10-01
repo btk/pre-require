@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/btk/pre-require/issues"
   },
-  "homepage": "https://github.com/btk/pre-require#readme"
+  "homepage": "https://github.com/btk/pre-require#readme",
+  "devDependencies": {
+    "jest": "^21.2.1"
+  }
 }
