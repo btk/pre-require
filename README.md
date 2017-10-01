@@ -6,7 +6,7 @@ This small trick would help you in the situations that you might need to use var
 
 **For Example:**
 
-Lets say I have 10 images named as;
+Let's say I have 10 images named as;
 - image1.png
 - image2.png
 - ...
@@ -24,23 +24,23 @@ while(i <= 10){
 
 Require works before the logic of your script starts working, so using variables in require() is just not the way to go. But as you might know, using require() in react is really nice and you will have some situations that if require would support variables, it would be perfect.
 
-Pre-require, requires all the files and creates an array from the pointed folder that you decide, so you can import this array and use is the way you would use require, but with variables. Also you can do array search in your assets.
+Pre-require, requires all the files and creates an array from the pointed folder that you decide, so you can import this array and use is the way you would use require, but with variables. Also, you can do array search in your assets.
 
 ## How to use?
 
-First install the pre-require globallly;
+First, install the pre-require globally;
 
 ~~~
 npm install pre-require -g
 ~~~
 
-pre-require takes 2 parametes, first is the path to the folder that your assets exists. Second parameter would be the output javascript file that you will be importing to your script which is returning a required asset map.
+pre-require takes 2 parameters, first is the path to the folder that your assets exist. The second parameter would be the output javascript file that you will be importing to your script which is returning a required asset map.
 
 ~~~
 pre-require images/ assets.js
 ~~~
 
-You might use this manually, when you add new assets to the destination file, or bind this command to your file watcher script, or webpack config. Or just add it to your npm run build command from your `package.json`
+You might use this manually when you add new assets to the destination file or bind this command to your file watcher script, or webpack config. Or just add it to your npm run build command from your `package.json`
 
 And if we rewrite the image1 to image10 example again with this;
 
@@ -62,7 +62,7 @@ The asset.js file exposes a range of methods for interacting with the data struc
 
 #### Assets.search
 
-This will return an array of assets matching the given pattern, currently this is just the matched asset name. In the future this will accept a regexp or partial match.
+This will return an array of assets matching the given pattern. Currently, this is just the matched asset name. In the future, this will accept a regexp or partial match.
 
 ~~~JS
 import Assets from './assets.js'
@@ -87,7 +87,7 @@ pre-require -h
 ~~~
 
 
-**NOTE:** Be careful that file extension dot (.) is changed into underscore ( _ ). Also if your assetfile has hyphen (-), it will be also turn into underscore.
+**NOTE:** Be careful that file extension dot (.) is changed into an underscore ( _ ). Also, if your asset file has one or more hyphens (-), they will be also turned into underscores ( _ ).
 
 You can use this module with any file that require() supports; image files (png, jpg, svg, etc), json files or even some extreme cases, javascript files.
 
