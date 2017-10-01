@@ -1,6 +1,6 @@
 # Pre-Require
 
-Pre-Require is a small global script that helps you create a module of array objects with required assets from a selected folder
+Pre-Require is a small global script that helps you create a module of an array object with required assets from a selected folder
 
 This script will help you with variables while fetching assets.
 
