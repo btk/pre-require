@@ -90,6 +90,7 @@ Pre-Require -h
 ~~~
 
 **NOTE:** Be careful that the file extension dot (file.type) is changed into an underscore (file_type).
+
 **NOTE:** If your asset filename contains a hyphen (Fi-Le_type), it will turn into an underscore (Fi_Le_type)
 
 You can use this module with any file that require() supports; image files (png, jpg, svg, etc), json files and javascript files.
