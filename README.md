@@ -1,12 +1,12 @@
 # Pre-require
 
-Pre-require is a small global script, helps you create a module of array object with required assets from the folder that you point out.
+Pre-require is a small global script, which helps you create a module of array objects with required assets from the folder that you direct it to.
 
-This small trick would help you in the situations that you might need to use variables while fetching assets.
+This small trick helps you in situations that you might need to use variables while fetching assets.
 
 **For Example:**
 
-Lets say I have 10 images named as;
+Lets say I have 10 images named as:
 - image1.png
 - image2.png
 - ...
@@ -22,27 +22,27 @@ while(i <= 10){
 }
 ~~~
 
-Require works before the logic of your script starts working, so using variables in require() is just not the way to go. But as you might know, using require() in react is really nice and you will have some situations that if require would support variables, it would be perfect.
+Require works before the logic of your script starts working, so using variables in require() is not the optimal direction. But, as you might know, using require() in React works really well and you will inevitably have situations where if only require would support variables, it would be perfect for your needs.
 
-Pre-require, requires all the files and creates an array from the pointed folder that you decide, so you can import this array and use is the way you would use require, but with variables. Also you can do array search in your assets.
+Pre-require, requires all the files and creates an array from the folder you direct it to, so you can import this array and use is the way you would use require, but with variables. Additionally, you can do array searches in your assets.
 
 ## How to use?
 
-First install the pre-require globallly;
+First install the pre-require globally:
 
 ~~~
 npm install pre-require -g
 ~~~
 
-pre-require takes 2 parametes, first is the path to the folder that your assets exists. Second parameter would be the output javascript file that you will be importing to your script which is returning a required asset map.
+Pre-require takes 2 parameters: First parameter is the path to the folder that your assets exist in. The second parameter is the output Javascript file that you will be importing to your script which is returning a required asset map.
 
 ~~~
 pre-require images/ assets.js
 ~~~
 
-You might use this manually, when you add new assets to the destination file, or bind this command to your file watcher script, or webpack config. Or just add it to your npm run build command from your `package.json`
+You might use this manually, when you add new assets to the destination file, or bind this command to your file watcher script, or webpack config or just add it to your npm run build command from your `package.json`
 
-And if we rewrite the image1 to image10 example again with this;
+Once more, an example of rewriting image1 to image10 with pre-require:
 
 ~~~JS
 import Assets from './assets.js'
@@ -80,19 +80,19 @@ import Assets from './assets.js'
 let pngs = Assets.format("png");
 ~~~
 
-For a full list of methods and useage see the api reference
+For a full list of methods and usage see the API reference
 
 ~~~
 pre-require -h
 ~~~
 
 
-**NOTE:** Be careful that file extension dot (.) is changed into underscore ( _ ). Also if your assetfile has hyphen (-), it will be also turn into underscore.
+**NOTE:** Be careful that file extension dot (.) is changed into underscore ( _ ). Also if your asset file has hyphen (-), it will automatically be transformed into an underscore.
 
-You can use this module with any file that require() supports; image files (png, jpg, svg, etc), json files or even some extreme cases, javascript files.
+You can use this module with any file that require() supports; image files (png, jpg, svg, etc), json files or, even in some extreme cases, Javascript files.
 
 **NOTE:** There is a lot to do, for example;
-- Built-in asset search 
+- Built-in asset search
 - Choosing the type of the asset that  (eg: regex folder parameter)
 - Adding -h info. (done)
 
