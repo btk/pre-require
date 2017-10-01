@@ -22,9 +22,9 @@ while(i <= 10){
 ~~~
 
 The require() function works before the the script starts working, so you don't use variables in this function. But we will use the require() function inside react() which will help us support variables inside it.
-The Pre-require, requires all the files from your pointed folder and creates an array, so you can import this array and use it as per your require() along with variables. Apart from this, you can also do array search in your assets.
+The Pre-require, takes all the files from your pointed folder and creates an array, so you can import this array and use it as per your require() along with variables. Apart from this, you can also do array search in your assets.
 
-## How to use?
+### How to use?
 
 First install the pre-require globally;
 
@@ -72,14 +72,14 @@ let thirdImage = Assets.search("image3");
 
 #### Assets.format
 
-Similar to Assets.search this will return all assets matching a given filetype
+Similar to Assets.search this will return all assets matching a given filetype.
 
 ~~~JS
 import Assets from './assets.js'
 
 let pngs = Assets.format("png");
 ~~~
-For a full list of methods and usage see the api reference
+For a full list of methods and usage see the API reference.
 ~~~
 pre-require -h
 ~~~
