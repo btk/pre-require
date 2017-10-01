@@ -36,7 +36,14 @@ fs.readdir(FOLDER_PATH, function(err, items) {
 
   let assetsFileContent = `// import this file for static assets
   let Obj = {
-    ${slugArray.join(', ')}
+    ${slugArray.join(', ')},
+    search: function(key) {
+      if(this.hasOwnProperty(key)) {
+        return this[key]
+      }
+      else
+        return -1;
+    }
   }
   export default Obj;
   `;
