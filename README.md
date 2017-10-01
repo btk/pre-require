@@ -1,8 +1,8 @@
 # Pre-require
 
-Pre-require is a small global script, helps you create a module of array object with required assets from the folder that you point out.
+Pre-require is a small global script that helps its users create a module of array objects with inclusion of required assets from the specified folder.
 
-This small trick would help you in the situations that you might need to use variables while fetching assets.
+This script would be the ideal help you in the situations where you might need to use variables while fetching assets.
 
 **For Example:**
 
@@ -22,19 +22,20 @@ while(i <= 10){
 }
 ~~~
 
-Require works before the logic of your script starts working, so using variables in require() is just not the way to go. But as you might know, using require() in react is really nice and you will have some situations that if require would support variables, it would be perfect.
+Require executes before the remaining lines of your script starts executing, therefore variables in require() is not supported. 
+As common consensus using require() in react is common practice therefore future scenarios were require would support variables, it would be the perfect outcome.
 
-Pre-require, requires all the files and creates an array from the pointed folder that you decide, so you can import this array and use is the way you would use require, but with variables. Also you can do array search in your assets.
+Pre-require, requires all the files and creates an array from the specified folder of your selection, so as you can import this array and use it as you would use require, with the added benefit of variables. Furthermore you can perform array search within your assets.
 
 ## How to use?
 
-First install the pre-require globallly;
+First install the pre-require globally;
 
 ~~~
 npm install pre-require -g
 ~~~
 
-pre-require takes 2 parametes, first is the path to the folder that your assets exists. Second parameter would be the output javascript file that you will be importing to your script which is returning a required asset map.
+pre-require takes 2 parameters, first is the path to the folder that your assets exists. Second parameter would be the output JavaScript file that you will be importing to your script which is returning a required asset map.
 
 ~~~
 pre-require images/ assets.js
@@ -80,7 +81,7 @@ import Assets from './assets.js'
 let pngs = Assets.format("png");
 ~~~
 
-For a full list of methods and useage see the api reference
+For a full list of methods and usage see the api reference
 
 ~~~
 pre-require -h
