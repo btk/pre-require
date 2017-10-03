@@ -7,7 +7,8 @@
     "pre-require": "index.js"
   },
   "scripts": {
-    "test": "node index.js images/ assets.js"
+    "test": "node index.js test-assets/ assets.js",
+    "test:jest": "jest"
   },
   "preferGlobal": "true",
   "repository": {
