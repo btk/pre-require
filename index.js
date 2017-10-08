@@ -47,13 +47,13 @@ const loopDirectory = (path, obj) => {
                 //if no more directory to read then we resolve it
                 resolve(obj);
             } else {
-                //if we still have directory to read then we loop and recurse it
-                directoryToRead.forEach(val => {
-                    loopDirectory(val.path, obj[val.normalizeFileName]).then(()=> {
-                        //we still need to resolve it so that it parent can get resolved
-                        resolve(obj);
-                    });
-                })
+                //if let say more than 1 directory inside the folder then we need to resolve when everything have been resolved
+                let promises = directoryToRead.map(val => {
+                    return loopDirectory(val.path, obj[val.normalizeFileName])
+                });
+                Promise.all(promises).then(()=> {
+                    resolve(obj);
+                });
             }
         });
     });
