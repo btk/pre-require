@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "node index.js test-assets/ assets.js",
-    "test:jest": "jest"
+    "test:jest": "jest",
+    "test:jest-watch": "jest --watch"
   },
   "preferGlobal": "true",
   "repository": {
