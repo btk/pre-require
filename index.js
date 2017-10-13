@@ -46,10 +46,11 @@ if (env !== 'test') {
               });
 
               if (directoryToRead.length === 0) {
-                  //if no more directory to read then we resolve it
+                  // if no more directory to read then we resolve it
                   resolve(obj);
               } else {
-                  //if let say more than 1 directory inside the folder then we need to resolve when everything have been resolved
+                  // if let say more than 1 directory inside the
+                  // folder then we need to resolve when everything have been resolved
                   let promises = directoryToRead.map(val => {
                       return loopDirectory(val.path, obj[val.normalizeFileName])
                   });
@@ -63,14 +64,15 @@ if (env !== 'test') {
 
 
   loopDirectory (FOLDER_PATH, {}).then((val)=> {
-      let assetsFileContent = `// import this file for static assets
-    let Obj = {
-      ${JSON.stringify(val).substr(1).slice(0, -1).replace(new RegExp('"', 'g'),'')},
-      search: ${searchFile},
-      format: ${searchFileFormat}
-    }
-    export default Obj;
-    `;
+      let assetsFileContent = `
+// import this file for static assets
+let Obj = {
+  ${JSON.stringify(val).substr(1).slice(0, -1).replace(new RegExp('"', 'g'),'')},
+  search: ${searchFile},
+  format: ${searchFileFormat}
+}
+export default Obj;
+      `;
       fs.writeFile (MODULE_NAME, assetsFileContent, function(err) {
           if (err) throw err;
           console.log('Pre-require');
@@ -80,19 +82,20 @@ if (env !== 'test') {
       });
   });
 }
+
 export const searchFile = function(key) {
-      if(this.hasOwnProperty(key)) {
-        return this[key];
-      } else {
-        return -1;
-      }
-    }
+  if(this.hasOwnProperty(key)) {
+    return this[key];
+  } else {
+    return -1;
+  }
+}
 
 export const searchFileFormat = function(extension) {
-      let filteredArray = this.filter(assetSlug => (assetSlug.includes("-"+extention)));
-      if(filteredArray.length){
-        return filteredArray;
-      } else {
-        return -1;
-      }
-    }
+  let filteredArray = this.filter(assetSlug => (assetSlug.includes("-"+extention)));
+  if(filteredArray.length){
+    return filteredArray;
+  } else {
+    return -1;
+  }
+}
