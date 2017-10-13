@@ -2,13 +2,15 @@
   "name": "pre-require",
   "version": "1.1.0",
   "description": "Pre-require is a small global script, helps you create a module of array object with required assets from the folder that you point out.",
-  "main": "index.js",
+  "main": "transpiled.js",
   "bin": {
-    "pre-require": "index.js"
+    "pre-require": "transpiled.js"
   },
   "scripts": {
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "transpile": "babel index.js -o transpiled.js",
+    "start": "npm run transpile; node transpiled.js test-assets/ assets.js"
   },
   "preferGlobal": "true",
   "repository": {
@@ -28,9 +30,11 @@
   },
   "homepage": "https://github.com/btk/pre-require#readme",
   "devDependencies": {
-    "jest": "^21.2.1"
+    "babel-cli": "^6.26.0",
+    "jest": "^21.2.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1"
   },
   "dependencies": {
-    "babel-preset-es2015": "^6.24.1"
   }
 }
