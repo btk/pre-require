@@ -1,14 +1,14 @@
 // import this file for static assets
   let Obj = {
-    asda_sda_json: require('./images/asda-sda.json'), asdasda_json: require('./images/asdasda.json'), qweqwe_json: require('./images/qweqwe.json'), vcvcvcv_json: require('./images/vcvcvcv.json'),
-    search: function(key) {
+    asda_sda_json: require('./test-assets/asda-sda.json'), asdasda_json: require('./test-assets/asdasda.json'), data_json: require('./test-assets/data.json'), image_a_jpg: require('./test-assets/image-a.jpg'), image_a_png: require('./test-assets/image-a.png'), image_b_png: require('./test-assets/image-b.png'), qweqwe_json: require('./test-assets/qweqwe.json'), vcvcvcv_json: require('./test-assets/vcvcvcv.json'),
+    search: function (key) {
       if(this.hasOwnProperty(key)) {
         return this[key];
       } else {
         return -1;
       }
     },
-    format: function(extention) {
+    format: function (extension) {
       let filteredArray = this.filter(assetSlug => (assetSlug.includes("-"+extention)));
       if(filteredArray.length){
         return filteredArray;

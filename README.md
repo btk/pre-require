@@ -98,6 +98,24 @@ You can use this module with any file that require() supports; image files (png,
 
 Help me make it better with your pull requests, they are welcome.
 
+### Development & Contribution
+
+// Todo: Add information about how to contribute.
+
+### Tests
+
+We use Jest for tests, to start tests locally;
+
+~~~
+npm run test
+~~~
+
+To watch the changes made in the test scripts, use;
+
+~~~
+npm run test:watch
+~~~
+
 ### Licence
 
 MIT
