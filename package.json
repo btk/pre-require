@@ -7,7 +7,9 @@
     "pre-require": "index.js"
   },
   "scripts": {
-    "test": "node index.js images/ assets.js"
+    "test": "node index.js test-assets/ assets.js",
+    "test:jest": "jest",
+    "test:jest-watch": "jest --watch"
   },
   "preferGlobal": "true",
   "repository": {
@@ -25,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/btk/pre-require/issues"
   },
-  "homepage": "https://github.com/btk/pre-require#readme"
+  "homepage": "https://github.com/btk/pre-require#readme",
+  "devDependencies": {
+    "jest": "^21.2.1"
+  }
 }
