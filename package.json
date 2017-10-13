@@ -7,9 +7,8 @@
     "pre-require": "index.js"
   },
   "scripts": {
-    "test": "node index.js test-assets/ assets.js",
-    "test:jest": "jest",
-    "test:jest-watch": "jest --watch"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "preferGlobal": "true",
   "repository": {
@@ -30,5 +29,8 @@
   "homepage": "https://github.com/btk/pre-require#readme",
   "devDependencies": {
     "jest": "^21.2.1"
+  },
+  "dependencies": {
+    "babel-preset-es2015": "^6.24.1"
   }
 }
