@@ -98,7 +98,8 @@ You can use this module with any file that require() supports; image files (png,
 
 Help me make it better with your pull requests, they are welcome.
 
-### Contribution
+
+### Contributing
 Development of pre-require happens in the open on GitHub, and we are grateful to the community for contributing bugfixes and improvements. If you intend to make any non-trivial changes to pre-require's implementation, we recommend filing an issue. This lets us reach an agreement on your proposal before you put significant effort into it. If you’re only fixing a bug, it’s fine to submit a pull request right away but we still recommend to file an issue detailing what you’re fixing.
 
 #### Development
@@ -107,11 +108,10 @@ Working on a feature or bug fix? We sugges that you follow the following pattern
 2. Write some code! Use `npm run start` to transpile and run `index.js`. If you would like the output of the transpiled code run `npm run transpile` and view the output at `transpiled.js`.
 3. If you’ve added code that should be tested, add tests!
 4. Make to update the appropriate documentation if needed.
-5. Ensure the test suite passes `npm run test`. You can run tests in watch mode using `npm run test:watch`
+5. Ensure the test suite passes.
 
 
-### Tests
-
+#### Testing
 We use Jest for tests, to start tests locally;
 
 ~~~
