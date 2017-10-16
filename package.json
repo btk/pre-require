@@ -12,7 +12,7 @@
     "transpile": "babel index.js -o transpiled.js",
     "start": "npm run transpile; node transpiled.js test-assets/ assets.js"
   },
-  "preferGlobal": "true",
+  "preferGlobal": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/btk/pre-require.git"
@@ -36,5 +36,10 @@
     "babel-preset-stage-2": "^6.24.1"
   },
   "dependencies": {
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageDirectory": "coverage",
+    "coverageReporters": ["html", "text", "text-summary"]
   }
 }

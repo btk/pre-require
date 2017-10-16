@@ -124,6 +124,9 @@ To watch the changes made in the test scripts, use;
 npm run test:watch
 ~~~
 
+##### Code Coverage
+Jest includes the ability to analyze test code coverage. When running the test tasks, coverage reports are generated and output to the `/coverage` directory. To view the HTML report, open `/coverage/index.html` in a browser.
+
 ### Licence
 
 MIT
