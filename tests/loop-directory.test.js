@@ -87,11 +87,25 @@ describe('Loop Directory', () => {
 
         })
 
-        test('should resolve with an object of path:require key/value pairs', async () => {
+        test('should resolve with an object of path:require key/value pairs for a flat directory', async () => {
             const assets = await loopDirectory(filePath, {});
 
             expect(assets).toEqual(expect.objectContaining({
                 'path/to/file/1': 'require(\'./test-assets/path/to/file/1\')',
+                'path/to/file/2': 'require(\'./test-assets/path/to/file/2\')',
+                'path/to/file/3': 'require(\'./test-assets/path/to/file/3\')'
+            }));
+        });
+
+        test('should resolve with an object of path:require key/value pairs for a sub-directory', async () => {
+            fs.lstatSync.mockReturnValueOnce({
+                isDirectory: jest.fn().mockReturnValueOnce(true)
+            });
+
+            const assets = await loopDirectory(filePath, {});
+
+            expect(assets).toEqual(expect.objectContaining({
+                'path/to/file/1': expect.any(Object),
                 'path/to/file/2': 'require(\'./test-assets/path/to/file/2\')',
                 'path/to/file/3': 'require(\'./test-assets/path/to/file/3\')'
             }));
