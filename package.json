@@ -3,6 +3,9 @@
   "version": "1.2.0",
   "description": "Pre-require is a small global script, helps you create a module of array object with required assets from the folder that you point out.",
   "main": "transpiled.js",
+  "engines": {
+    "node": ">=7.6"
+  },
   "bin": {
     "pre-require": "transpiled.js"
   },
