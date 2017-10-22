@@ -26,17 +26,17 @@ Not only that, now pre-require works for folder inside a folder as well. When pr
 
 **For Example:**
 - jpegimage
--- image1.jpg
--- image2.jpg
--- image3.jpg
--- image4.jpg
--- image5.jpg
+    - image1.jpg
+    - image2.jpg
+    - image3.jpg
+    - image4.jpg
+    - image5.jpg
 - pngimage
--- image1.png
--- image2.png
--- image3.png
--- image4.png
--- image5.png
+    - image1.png
+    - image2.png
+    - image3.png
+    - image4.png
+    - image5.png
 
 
 Require works before the logic of your script starts working, so using variables in require() is not the optimal direction. But, as you might know, using require() in React works really well and you will inevitably have situations where if only require would support variables, it would be perfect for your needs.
@@ -74,7 +74,8 @@ while(i <= 10){
 }
 ~~~
 
-What about the second example with 2 image type folder with pre-require?
+**What about the second example with 2 image type folder with pre-require?**
+<br>
 yes of course you can, the folder will be available as an object with folder name as the key. In this case will be something like this
 ```
 {
