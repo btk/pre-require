@@ -1,6 +1,6 @@
-# Pre-require
+﻿# Pre-require
 
-Pre-require is a small global script, which helps you create a module of array objects with required assets from the folder that you direct it to.
+Pre-require is a small global script, which helps you create a module of objects with required assets from the folder that you direct it to.
 
 This small trick helps you in situations that you might need to use variables while fetching assets.
 
@@ -22,9 +22,27 @@ while(i <= 10){
 }
 ~~~
 
+Not only that, now pre-require works for folder inside a folder as well. When pre-require sees a folder inside there, it will create an object based on it. 
+
+**For Example:**
+- jpegimage
+-- image1.jpg
+-- image2.jpg
+-- image3.jpg
+-- image4.jpg
+-- image5.jpg
+- pngimage
+-- image1.png
+-- image2.png
+-- image3.png
+-- image4.png
+-- image5.png
+
+
 Require works before the logic of your script starts working, so using variables in require() is not the optimal direction. But, as you might know, using require() in React works really well and you will inevitably have situations where if only require would support variables, it would be perfect for your needs.
 
 Pre-require, requires all the files and creates an array from the folder you direct it to, so you can import this array and use is the way you would use require, but with variables. Additionally, you can do array searches in your assets.
+
 
 ## How to use?
 
@@ -52,6 +70,37 @@ let i = 1;
 let imageArray = [];
 while(i <= 10){
   imageArray.push(Assets["image"+ i +"_png"]);
+  i++;
+}
+~~~
+
+What about the second example with 2 image type folder with pre-require?
+yes of course you can, the folder will be available as an object with folder name as the key. In this case will be something like this
+```
+{
+  "pngimage": {
+    "image1_png":require('./pngimage/image1.png'),
+    ...,
+    "image5_png":require('./pngimage/image5.png')
+  },
+  "jpegimage": {
+    "image1_jpg":require('./pngimage/image1.jpg'),
+    ...,
+    "image5_jpg":require('./pngimage/image5.jpg')
+  }
+}
+```
+
+~~~JS
+import Assets from './assets.js'
+// assets.js would be the path of your output file, that pre-require command created.
+
+let i = 1;
+let imageJpgs = [];
+let imagePngs = [];
+while(i <= 5){
+  imagePngs.push(Assets["pngimage"]["image"+ i +"_png"]);
+  imageJpgs.push(Assets["jpegimage"]["image"+ i +"_jpg"]);
   i++;
 }
 ~~~
