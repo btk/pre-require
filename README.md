@@ -1,12 +1,12 @@
-# Pre-require
+﻿# Pre-require
 
-Pre-require is a small global script, helps you create a module of array object with required assets from the folder that you point out.
+Pre-require is a small global script, which helps you create a module of objects with required assets from the folder that you direct it to.
 
-This small trick would help you in the situations that you might need to use variables while fetching assets.
+This small trick helps you in situations that you might need to use variables while fetching assets.
 
 **For Example:**
 
-Lets say I have 10 images named as;
+Lets say I have 10 images named as:
 - image1.png
 - image2.png
 - ...
@@ -22,27 +22,45 @@ while(i <= 10){
 }
 ~~~
 
-Require works before the logic of your script starts working, so using variables in require() is just not the way to go. But as you might know, using require() in react is really nice and you will have some situations that if require would support variables, it would be perfect.
+Not only that, now pre-require works for folder inside a folder as well. When pre-require sees a folder inside there, it will create an object based on it. 
 
-Pre-require, requires all the files and creates an array from the pointed folder that you decide, so you can import this array and use is the way you would use require, but with variables. Also you can do array search in your assets.
+**For Example:**
+- jpegimage
+    - image1.jpg
+    - image2.jpg
+    - image3.jpg
+    - image4.jpg
+    - image5.jpg
+- pngimage
+    - image1.png
+    - image2.png
+    - image3.png
+    - image4.png
+    - image5.png
+
+
+Require works before the logic of your script starts working, so using variables in require() is not the optimal direction. But, as you might know, using require() in React works really well and you will inevitably have situations where if only require would support variables, it would be perfect for your needs.
+
+Pre-require, requires all the files and creates an array from the folder you direct it to, so you can import this array and use is the way you would use require, but with variables. Additionally, you can do array searches in your assets.
+
 
 ## How to use?
 
-First install the pre-require globallly;
+First install the pre-require globally:
 
 ~~~
 npm install pre-require -g
 ~~~
 
-pre-require takes 2 parametes, first is the path to the folder that your assets exists. Second parameter would be the output javascript file that you will be importing to your script which is returning a required asset map.
+Pre-require takes 2 parameters: First parameter is the path to the folder that your assets exist in. The second parameter is the output Javascript file that you will be importing to your script which is returning a required asset map.
 
 ~~~
 pre-require images/ assets.js
 ~~~
 
-You might use this manually, when you add new assets to the destination file, or bind this command to your file watcher script, or webpack config. Or just add it to your npm run build command from your `package.json`
+You might use this manually, when you add new assets to the destination file, or bind this command to your file watcher script, or webpack config or just add it to your npm run build command from your `package.json`
 
-And if we rewrite the image1 to image10 example again with this;
+Once more, an example of rewriting image1 to image10 with pre-require:
 
 ~~~JS
 import Assets from './assets.js'
@@ -52,6 +70,38 @@ let i = 1;
 let imageArray = [];
 while(i <= 10){
   imageArray.push(Assets["image"+ i +"_png"]);
+  i++;
+}
+~~~
+
+**What about the second example with 2 image type folder with pre-require?**
+<br>
+yes of course you can, the folder will be available as an object with folder name as the key. In this case will be something like this
+```
+{
+  "pngimage": {
+    "image1_png":require('./pngimage/image1.png'),
+    ...,
+    "image5_png":require('./pngimage/image5.png')
+  },
+  "jpegimage": {
+    "image1_jpg":require('./pngimage/image1.jpg'),
+    ...,
+    "image5_jpg":require('./pngimage/image5.jpg')
+  }
+}
+```
+
+~~~JS
+import Assets from './assets.js'
+// assets.js would be the path of your output file, that pre-require command created.
+
+let i = 1;
+let imageJpgs = [];
+let imagePngs = [];
+while(i <= 5){
+  imagePngs.push(Assets["pngimage"]["image"+ i +"_png"]);
+  imageJpgs.push(Assets["jpegimage"]["image"+ i +"_jpg"]);
   i++;
 }
 ~~~
@@ -80,23 +130,52 @@ import Assets from './assets.js'
 let pngs = Assets.format("png");
 ~~~
 
-For a full list of methods and useage see the api reference
+For a full list of methods and usage see the API reference
 
 ~~~
 pre-require -h
 ~~~
 
 
-**NOTE:** Be careful that file extension dot (.) is changed into underscore ( _ ). Also if your assetfile has hyphen (-), it will be also turn into underscore.
+**NOTE:** Be careful that file extension dot (.) is changed into underscore ( _ ). Also if your asset file has hyphen (-), it will automatically be transformed into an underscore.
 
-You can use this module with any file that require() supports; image files (png, jpg, svg, etc), json files or even some extreme cases, javascript files.
+You can use this module with any file that require() supports; image files (png, jpg, svg, etc), json files or, even in some extreme cases, Javascript files.
 
 **NOTE:** There is a lot to do, for example;
-- Built-in asset search 
+- Built-in asset search
 - Choosing the type of the asset that  (eg: regex folder parameter)
 - Adding -h info. (done)
 
 Help me make it better with your pull requests, they are welcome.
+
+
+### Contributing
+Development of pre-require happens in the open on GitHub, and we are grateful to the community for contributing bugfixes and improvements. If you intend to make any non-trivial changes to pre-require's implementation, we recommend filing an issue. This lets us reach an agreement on your proposal before you put significant effort into it. If you’re only fixing a bug, it’s fine to submit a pull request right away but we still recommend to file an issue detailing what you’re fixing.
+
+#### Development
+Working on a feature or bug fix? We sugges that you follow the following pattern:
+1. Fork the repository and create your branch from master.
+2. Write some code! Use `npm run start` to transpile and run `index.js`. If you would like the output of the transpiled code run `npm run transpile` and view the output at `transpiled.js`.
+3. If you’ve added code that should be tested, add tests!
+4. Make to update the appropriate documentation if needed.
+5. Ensure the test suite passes.
+
+
+#### Testing
+We use Jest for tests, to start tests locally;
+
+~~~
+npm run test
+~~~
+
+To watch the changes made in the test scripts, use;
+
+~~~
+npm run test:watch
+~~~
+
+##### Code Coverage
+Jest includes the ability to analyze test code coverage. When running the test tasks, coverage reports are generated and output to the `/coverage` directory. To view the HTML report, open `/coverage/index.html` in a browser.
 
 ### Licence
 
